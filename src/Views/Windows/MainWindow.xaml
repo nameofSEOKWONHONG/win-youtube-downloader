@@ -69,6 +69,7 @@
                 </Grid>
             </ui:NavigationView.ContentOverlay>
         </ui:NavigationView>
+        
 
         <ContentPresenter x:Name="RootContentDialog" Grid.Row="0" />
     </Grid>

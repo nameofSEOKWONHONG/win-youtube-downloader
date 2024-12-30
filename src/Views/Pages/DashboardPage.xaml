@@ -29,12 +29,14 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ui:Button Grid.Column="0" Margin="10"
+                    <ui:ProgressRing IsIndeterminate="True" x:Name="ProgressRing" Margin="20" Visibility="{Binding ViewModel.RingVisibility}"/>
+                    <ui:Button Grid.Column="1" Margin="10"
                                Command="{Binding ViewModel.PreviewCommand, Mode=OneWay}"
                                Content="Preview"
                                Icon="Fluent24" />
-                    <ui:Button Grid.Column="1" Margin="10"
+                    <ui:Button Grid.Column="2" Margin="10"
                                Command="{Binding ViewModel.DownloadCommand, Mode=OneWay}"
                                Content="Download"
                                Icon="Fluent24" />

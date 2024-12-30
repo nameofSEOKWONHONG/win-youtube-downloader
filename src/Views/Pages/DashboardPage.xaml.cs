@@ -3,11 +3,11 @@ using Wpf.Ui.Controls;
 
 namespace WinYoutubeDownloader.Views.Pages
 {
-    public partial class DashboardPage : INavigableView<DashboardViewModel>
+    public partial class DashboardPage : INavigableView<YoutubeDownloadViewModel>
     {
-        public DashboardViewModel ViewModel { get; }
+        public YoutubeDownloadViewModel ViewModel { get; }
 
-        public DashboardPage(DashboardViewModel viewModel)
+        public DashboardPage(YoutubeDownloadViewModel viewModel)
         {
             ViewModel = viewModel;
             DataContext = this;

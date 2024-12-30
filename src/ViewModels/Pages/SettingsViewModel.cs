@@ -1,4 +1,6 @@
-﻿using Wpf.Ui.Appearance;
+﻿using eXtensionSharp;
+using TagLib;
+using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 
 namespace WinYoutubeDownloader.ViewModels.Pages
@@ -6,6 +8,9 @@ namespace WinYoutubeDownloader.ViewModels.Pages
     public partial class SettingsViewModel : ObservableObject, INavigationAware
     {
         private bool _isInitialized = false;
+
+        [ObservableProperty]
+        private string _downloadPath = String.Empty;
 
         [ObservableProperty]
         private string _appVersion = String.Empty;
@@ -24,6 +29,7 @@ namespace WinYoutubeDownloader.ViewModels.Pages
         private void InitializeViewModel()
         {
             CurrentTheme = ApplicationThemeManager.GetAppTheme();
+            DownloadPath = Settings.Default.DownloadPath.xValue<string>(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
             AppVersion = $"WinYoutube Downloader - {GetAssemblyVersion()}";
 
             _isInitialized = true;
@@ -58,6 +64,13 @@ namespace WinYoutubeDownloader.ViewModels.Pages
 
                     break;
             }
+        }
+
+        [RelayCommand]
+        private void OnDownloadPathSave()
+        {
+            Settings.Default.DownloadPath = DownloadPath;
+            Settings.Default.Save();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace WinYoutubeDownloader.ViewModels.Windows
                 Content = "Download List",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.DataHistogram24 },
                 TargetPageType = typeof(Views.Pages.DataPage)
-            }
+            },
         };
 
         [ObservableProperty]
